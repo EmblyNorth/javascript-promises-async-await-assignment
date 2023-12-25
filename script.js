@@ -45,3 +45,15 @@
 
 
 //END OF ASSIGNMENT
+function getCatFacts(numFacts) {
+    // Use the Fetch API to make an asynchronous HTTP request
+    return fetch(`https://catfact.ninja/facts?limit=${numFacts}`)
+      .then((response) => {
+        return response.json();
+      })
+      // Handle errors
+      .catch((error) => {
+        console.error(error);
+        throw error;
+      });
+  }
