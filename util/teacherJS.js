@@ -62,3 +62,16 @@ function handleGenerateButtonClick() {
 // Attach click event listener to the generate button
 const generateButton = document.getElementById("generate-btn");
 generateButton.addEventListener("click", handleGenerateButtonClick);
+
+function getCatFacts(numFacts) {
+  // Use the Fetch API to make an asynchronous HTTP request
+  return fetch(`https://catfact.ninja/facts?limit=${numFacts}`)
+    .then((response) => {
+      return response.json();
+    })
+    // Handle errors
+    .catch((error) => {
+      console.error(error);
+      throw error;
+    });
+}
